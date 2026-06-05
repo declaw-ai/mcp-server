@@ -18,16 +18,9 @@ function buildSandboxOpts(
   }
 
   if (allowedDomains && allowedDomains.length > 0) {
-    result.network = {
-      policy: 'egress',
-      allowedEgressDestinations: allowedDomains.map((d) => ({
-        protocol: 'tcp',
-        host: d,
-        port: 443,
-      })),
-    };
+    result.network = { allowOut: allowedDomains };
   } else if (preset === 'strict') {
-    result.network = { policy: 'deny-all' };
+    result.network = { denyOut: ['0.0.0.0/0'] };
   }
 
   return result;
