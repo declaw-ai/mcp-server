@@ -66,7 +66,7 @@ create_sandbox with template="python", security_preset="strict", allowed_domains
 | Non-bypassable network controls | Yes | No |
 | PII scanning | Yes | No |
 | Injection defense | Yes | No |
-| Audit logging | Yes | No |
+| Full audit trail | Yes | Basic |
 | Snapshots | Yes | Varies |
 | Multiple templates | 8 built-in | Varies |
 | Interactive stdio | Yes | Varies |
