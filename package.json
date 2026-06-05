@@ -1,0 +1,48 @@
+{
+  "name": "@declaw/mcp-server",
+  "version": "0.1.0",
+  "description": "MCP server for Declaw — secure AI sandboxes with network policies, PII scanning, injection defense, and audit logging",
+  "type": "module",
+  "bin": {
+    "declaw-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/index.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "dev": "tsx src/index.ts"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "declaw",
+    "sandbox",
+    "ai-agents",
+    "security",
+    "firecracker",
+    "pii",
+    "prompt-injection",
+    "guardrails"
+  ],
+  "homepage": "https://declaw.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/declaw-ai/mcp-server.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Declaw <hello@declaw.ai>",
+  "dependencies": {
+    "@declaw/sdk": "^1.1.13",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "shx": "^0.3.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.6.0"
+  }
+}

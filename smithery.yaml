@@ -1,0 +1,27 @@
+build:
+  dockerBuildPath: .
+
+startCommand:
+  type: stdio
+
+configSchema:
+  type: object
+  required:
+    - declaw_api_key
+  properties:
+    declaw_api_key:
+      type: string
+      description: Declaw API key (get one at https://declaw.ai)
+    declaw_domain:
+      type: string
+      description: Custom API domain (optional, for on-prem deployments)
+
+commandFunction: |-
+  (config) => ({
+    command: 'npx',
+    args: ['-y', '@declaw/mcp-server'],
+    env: {
+      DECLAW_API_KEY: config.declaw_api_key,
+      ...(config.declaw_domain ? { DECLAW_DOMAIN: config.declaw_domain } : {})
+    }
+  })
