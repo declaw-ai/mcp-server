@@ -60,16 +60,16 @@ create_sandbox with template="python", security_preset="strict", allowed_domains
 
 ## Why Declaw?
 
-| | Declaw | E2B | Daytona |
-|---|---|---|---|
-| Sandbox execution | Yes | Yes | Yes |
-| Network policies | Yes | No | No |
-| PII scanning | Yes | No | No |
-| Injection defense | Yes | No | No |
-| Audit logging | Yes | No | No |
-| Snapshots | Yes | No | No |
-| Multiple templates | 8 built-in | 1 (Python) | Custom images |
-| Interactive stdio | Yes | No | Yes |
+| | Declaw | Other Sandbox Providers |
+|---|---|---|
+| Sandbox execution | Yes | Yes |
+| Non-bypassable network controls | Yes | No |
+| PII scanning | Yes | No |
+| Injection defense | Yes | No |
+| Audit logging | Yes | No |
+| Snapshots | Yes | Varies |
+| Multiple templates | 8 built-in | Varies |
+| Interactive stdio | Yes | Varies |
 
 ## Environment Variables
 
