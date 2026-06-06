@@ -63,7 +63,7 @@ create_sandbox with template="python", security_preset="strict", allowed_domains
 | | Declaw | Other Sandbox Providers |
 |---|---|---|
 | Sandbox execution | Yes | Yes |
-| Non-bypassable network controls | Yes | No |
+| Non-bypassable network controls | Yes | ?? |
 | PII scanning | Yes | No |
 | Injection defense | Yes | No |
 | Full audit trail | Yes | Basic |
