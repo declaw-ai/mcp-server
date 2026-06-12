@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-export DECLAW_API_KEY="${DECLAW_API_KEY:-dcl_4b6a6d0683bb1777db5efdae56f10e15}"
+export DECLAW_API_KEY="${DECLAW_API_KEY:?Set DECLAW_API_KEY to a valid Declaw API key}"
 export DECLAW_DOMAIN="${DECLAW_DOMAIN:-api.declaw.ai}"
 
 # Start MCP server
