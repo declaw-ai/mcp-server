@@ -1,4 +1,4 @@
-name: Publish to npm
+name: Publish to npm and MCP Registry
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write
+  id-token: write # required for npm provenance AND MCP Registry OIDC auth
 
 jobs:
   publish:
@@ -28,3 +28,20 @@ jobs:
       - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # --- Publish metadata to the official MCP Registry ---
+      # Uses GitHub Actions OIDC (no token needed); the io.github.declaw-ai/*
+      # namespace is authorized for this repo automatically.
+      - name: Install mcp-publisher
+        run: |
+          curl -L "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" \
+            | tar xz mcp-publisher
+
+      - name: Wait for npm propagation
+        run: sleep 30
+
+      - name: Authenticate to MCP Registry (GitHub OIDC)
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish to MCP Registry
+        run: ./mcp-publisher publish
