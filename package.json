@@ -1,6 +1,7 @@
 {
   "name": "@declaw/mcp-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
+  "mcpName": "io.github.declaw-ai/mcp-server",
   "description": "MCP server for Declaw — secure AI sandboxes with network policies, PII scanning, injection defense, and audit logging",
   "type": "module",
   "bin": {
